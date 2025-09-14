@@ -2,12 +2,12 @@
 
 An interactive tool for exploring **quantum dynamics** with machine learning and explainable AI (XAI).  
 It simulates entangled qubits, trains a neural network to approximate the dynamics, and applies **SHAP analysis** to interpret the results.  
-The app runs with [Gradio](https://gradio.app/) in a simple web interface — no prior quantum expertise required.
+The app runs with [Gradio](https://gradio.app/) in a simple web interface, no prior quantum expertise required.
 
 ---
 
 ## Features
-- Simulate **2–4 qubits** with tunable parameters (time, epochs, decoherence, etc.).
+- Simulate **2-4 qubits** with tunable parameters (time, epochs, decoherence, etc.).
 - Train a **PyTorch neural network** in real-time.
 - Apply **SHAP explainability** to visualize feature impact.
 - Dashboard with:
@@ -23,7 +23,7 @@ The app runs with [Gradio](https://gradio.app/) in a simple web interface — no
 Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/quantum-xai-app.git
+git clone https://github.com/ShaharyarNasir/Quantum-XAI-App.git
 cd quantum-xai-app
 ```
 
@@ -69,7 +69,7 @@ If you use this app in your research or teaching, please cite:
   title        = {Quantum XAI Mini-App: Interactive Exploration of Quantum Dynamics with Neural Networks and SHAP},
   author       = {Muhammad Shaharyar Nasir},
   year         = {2025},
-  howpublished = {\url{https://github.com/ShaharyarNasir/quantum-xai-app}},
+  howpublished = {\url{https://github.com/ShaharyarNasir/Quantum-XAI-App.git},
   note         = {Interactive Gradio-based implementation accompanying research paper}
 }
 ```
@@ -77,4 +77,4 @@ If you use this app in your research or teaching, please cite:
 ---
 
 ## License
-MIT License – feel free to use, modify, and share.
+MIT License - feel free to use, modify, and share.
