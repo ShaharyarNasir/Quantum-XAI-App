@@ -1,80 +1,48 @@
-# Quantum XAI Mini-App
+# Quantum XAI App: Non-Invasive Entanglement Analysis via Neural Proxies and SHAP
 
-An interactive tool for exploring **quantum dynamics** with machine learning and explainable AI (XAI).  
-It simulates entangled qubits, trains a neural network to approximate the dynamics, and applies **SHAP analysis** to interpret the results.  
-The app runs with [Gradio](https://gradio.app/) in a simple web interface, no prior quantum expertise required.
+This repository implements the framework from the paper "Probing Quantum Dynamics Through Explainable AI: Non-Invasive Entanglement Analysis via Neural Proxies and SHAP". It enables simulation of entangled qubit dynamics using QuTiP, training classical neural proxies (PyTorch), SHAP interpretability, and an interactive Gradio app for real-time exploration.
 
----
+## Key Features
+- **Simulations**: 2-6 qubit linear chain Hamiltonians with optional Lindblad decoherence (γ=0.05).
+- **Neural Proxies**: ReLU networks (e.g., 20→10→1 for 2-qubit) trained with Adam (lr=0.01, MSE loss).
+- **SHAP Analysis**: DeepExplainer reveals temporal impacts (e.g., peaks at t≈2.5/7.5 for 2-qubit).
+- **Gradio Mini-App**: Interactive dashboard for parameter tuning (qubits, time, epochs) and visualizations (loss, correlations, SHAP beeswarm).
+- **Scalability Script**: `scripts/scalability_and_shap_6qubit.py` for 6-qubit extension (MSE=0.0361, sub-quadratic fit).
 
-## Features
-- Simulate **2-4 qubits** with tunable parameters (time, epochs, decoherence, etc.).
-- Train a **PyTorch neural network** in real-time.
-- Apply **SHAP explainability** to visualize feature impact.
-- Dashboard with:
-  - Training loss curve  
-  - Quantum vs NN prediction comparison  
-  - SHAP beeswarm plot  
-  - Run summary (MSE, parameters)  
+## Setup
+1. Clone repo: `git clone https://github.com/ShaharyarNasir/Quantum-XAI-App.git`
+2. Install dependencies: `pip install qutip torch shap gradio matplotlib numpy scipy`
+3. Run app: `python app.py` (opens at http://127.0.0.1:7860)
 
----
+## Usage
+- **Interactive Mode**: Launch Gradio app, adjust sliders (e.g., N=4, γ=0.05), click "Run Simulation" for 2x2 dashboard.
+- **Offline Scalability**: Run `python scripts/scalability_and_shap_6qubit.py` for Fig. 5 outputs (`scalability_mse.pdf`, `shap_6qubit_inset.pdf`).
+- **Reproduce Results**: See `notebooks/2qubit_validation.ipynb` for full 2/4-qubit runs (MSE=0.0196/0.025).
 
-## Installation
+## Results Overview
+| Qubits (N) | MSE | R² | Key SHAP Times (t) | Notes |
+|------------|-----|----|---------------------|-------|
+| 2          | 0.0196 | 0.984 | 2.5, 7.5 | Baseline |
+| 4          | 0.025 | 0.975 | 2.0, 6.5, 8.0 | Linear chain |
+| 6          | 0.0361 | 0.087 | 1.21, 2.63, 4.04 | Sub-quadratic extension |
 
-Clone this repository:
-
-```bash
-git clone https://github.com/ShaharyarNasir/Quantum-XAI-App.git
-cd quantum-xai-app
-```
-
-Install dependencies:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-## Run the App
-
-Start the Gradio app:
-
-```bash
-python quantum_xai_app.py
-```
-
-This will open a local web interface in your browser.
-
----
-
-## Example
-
-When you run a simulation (e.g., 2 qubits, 1000 epochs), the app shows an interactive dashboard:
-
-1. Training loss over epochs  
-2. Quantum correlation vs. NN prediction  
-3. SHAP summary plot  
-4. Simulation summary with MSE and parameters  
-
-![Quantum XAI App Example](dashboard.png)
-
----
-
-## Citation
-
-If you use this app in your research or teaching, please cite:
-
-```bibtex
-@misc{quantum_xai_app,
-  title        = {Quantum XAI Mini-App: Interactive Exploration of Quantum Dynamics with Neural Networks and SHAP},
-  author       = {Muhammad Shaharyar Nasir},
-  year         = {2025},
-  howpublished = {\url{https://github.com/ShaharyarNasir/Quantum-XAI-App.git},
-  note         = {Interactive Gradio-based implementation accompanying research paper}
-}
-```
-
----
+See paper for proofs and NISQ apps.
 
 ## License
-MIT License - feel free to use, modify, and share.
+MIT License—free for research/education.
+
+## Citation
+If using, cite the accompanying paper and this implementation:
+
+- Paper: Nasir, M. S. (2025). *Probing Quantum Dynamics Through Explainable AI: Non-Invasive Entanglement Analysis via Neural Proxies and SHAP* .  
+
+- Software:  
+  ```bibtex
+  @misc{quantum_xai_app,
+    title        = {Quantum XAI Mini-App: Interactive Exploration of Quantum Dynamics with Neural Networks and SHAP},
+    author       = {Muhammad Shaharyar Nasir},
+    year         = {2025},
+    howpublished = {\url{https://github.com/ShaharyarNasir/Quantum-XAI-App}},
+    note         = {Interactive Gradio-based implementation accompanying the research paper "Probing Quantum Dynamics Through Explainable AI: Non-Invasive Entanglement Analysis via Neural Proxies and SHAP" (Sep 2025)},
+    month        = {Sep}
+  }
