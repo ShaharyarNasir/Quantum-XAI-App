@@ -1,5 +1,7 @@
 # Quantum XAI App: Non-Invasive Entanglement Analysis via Neural Proxies and SHAP
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17138279.svg)](https://doi.org/10.5281/zenodo.17138279)
+
 This repository implements the framework from the paper "Probing Quantum Dynamics Through Explainable AI: Non-Invasive Entanglement Analysis via Neural Proxies and SHAP". It enables simulation of entangled qubit dynamics using QuTiP, training classical neural proxies (PyTorch), SHAP interpretability, and an interactive Gradio app for real-time exploration.
 
 ## Key Features
